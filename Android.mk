@@ -24,8 +24,7 @@ LOCAL_PATH := $(call my-dir)
 
 ifeq ($(BOARD_VENDOR),samsung)
 
-# TODO: Add 8660 when refactored
-ifeq ($(call is-board-platform-in-list,msm8960 msm8660),true)
+ifneq ($(filter $(TARGET_BOARD_PLATFORM), msm8960 msm8660),)
 include $(call all-makefiles-under,$(LOCAL_PATH))
 endif
 endif
